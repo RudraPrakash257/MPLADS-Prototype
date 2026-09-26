@@ -1,26 +1,24 @@
-import { Routes, Route } from 'react-router-dom';
-import { ActionStatusProvider } from './context/ActionStatusContext';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
-import OverviewPage from './pages/OverviewPage';
-import WorksPage from './pages/WorksPage';
-import AnalyticsPage from './pages/AnalyticsPage';
-import AgenciesPage from './pages/AgenciesPage';
-import PriorityPage from './pages/PriorityPage';
-import WorkDetailsPage from './pages/WorkDetailsPage';
+import Dashboard from './pages/Dashboard';
+import WorksExplorer from './pages/WorksExplorer';
+import WorkDetail from './pages/WorkDetail';
+import Detectors from './pages/Detectors';
 
-export default function App() {
+function App() {
   return (
-    <ActionStatusProvider>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<OverviewPage />} />
-          <Route path="/works" element={<WorksPage />} />
-          <Route path="/works/:workId" element={<WorkDetailsPage />} />
-          <Route path="/analytics" element={<AnalyticsPage />} />
-          <Route path="/agencies" element={<AgenciesPage />} />
-          <Route path="/priority" element={<PriorityPage />} />
-        </Route>
-      </Routes>
-    </ActionStatusProvider>
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/works" element={<WorksExplorer />} />
+          <Route path="/works/:id" element={<WorkDetail />} />
+          <Route path="/detectors" element={<Detectors />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   );
 }
+
+export default App;
