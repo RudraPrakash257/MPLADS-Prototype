@@ -120,9 +120,9 @@ async def lifespan(app: FastAPI):
 
 # Initialize models when the module is imported (for development/testing)
 # This ensures they're available even when running outside FastAPI startup
-print("[INIT] Initializing models for development/testing...")
-_load_models()
-print("[INIT] Models initialization complete.")
+# print("[INIT] Initializing models for development/testing...")
+# _load_models()
+# print("[INIT] Models initialization complete.")
 
 
 app = FastAPI(
